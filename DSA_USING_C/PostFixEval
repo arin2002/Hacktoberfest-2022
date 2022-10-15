@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct stack{
+    int top;
+    int size;
+    int arr[100];
+}stack;
+
+int pop(stack* stk){
+    if(stk->top == -1){
+        printf("Stack is empty!\n");
+    }
+    else{
+        stk->top--;
+        return stk->arr[stk->top+1];
+    }
+}
+
+void push(stack* stk, int x){
+    if(stk->top == stk->size - 1){
+        printf("Stack is full!\n");
+    }
+    else{
+        stk->top++;
+        stk->arr[stk->top] = x;
+    }
+}
+
+int postfixEval(stack* stk, char exp[]){
+    int a, b, res;
+    for(int i = 0; i<strlen(exp); i++){
+        if(exp[i] == '+'){
+            a = pop(stk);
+            b = pop(stk);
+            res = b + a;
+            push(stk, res);
+        }
+        else if(exp[i] == '-'){
+            a = pop(stk);
+            b = pop(stk);
+            res = b - a;
+            push(stk, res);
+        }
+        else if(exp[i] == '*'){
+            a = pop(stk);
+            b = pop(stk);
+            res = b * a;
+            push(stk, res);
+        }
+        else if(exp[i] == '/'){
+            a = pop(stk);
+            b = pop(stk);
+            res = b / a;
+            push(stk, res);
+        }
+        else if(exp[i] == '^'){
+            a = pop(stk);
+            b = pop(stk);
+            res = b ^ a;
+            push(stk, res);
+        }
+        else{
+            int operand = (int)exp[i] - '0';
+            push(stk, operand);
+        }
+    }
+    return stk->arr[stk->top];
+}
+
+int main(){
+    char exp[100];
+    scanf("%s", &exp);
+    stack stk;
+    stk.top = -1;
+    stk.size = strlen(exp);
+    printf("the Evaluated Result is: %d", postfixEval(&stk, exp));
+}
