@@ -1,1 +1,37 @@
+name: Automerge
 
+on:
+  workflow_dispatch:
+  schedule:
+    # You can setup schedule here
+    - cron: '0 0 * * *'
+
+env:
+  # replace "github_username" with your GitHub username
+  # replace "github.com/username/repo.git" with your GitHub repo path
+  # do NOT replace ${{secrets.GITHUB_TOKEN}}, GitHub will take care of it
+  MY_REPO: https://arin2002:${{secrets.GITHUB_TOKEN}}@https://github.com/arin2002/Coding-questions
+
+  # replace "long-lived_branch_name" with your branch name
+  MY_BRANCH: main
+
+  # replace it with the path to master repo
+  MASTER_REPO: https://github.com/arin2002/Coding-questions
+
+  # replace "master" with your master branch name
+  MASTER_BRANCH: main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Merge with master
+      run: |
+        git clone ${{env.MY_REPO}} -b ${{env.MY_BRANCH}} tmp
+        cd tmp
+        git config user.name "Automerge Bot"
+        git config user.email "bot@example.com"
+        git config pull.rebase false
+        git pull ${{env.MASTER_REPO}} ${{env.MASTER_BRANCH}}
+        git push
