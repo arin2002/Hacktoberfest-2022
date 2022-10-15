@@ -1,2 +1,2 @@
 # Coding-questions
-For hacktoberfest
+For hacktoberfest do star and fork repo
