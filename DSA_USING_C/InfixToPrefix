@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct stack{
+    int top;
+    int size;
+    char arr[100];
+}stack;
+
+char pop(stack *stk){
+    if(stk->top == -1){
+        printf("Stack is empty\n");
+    }
+    else{
+        stk->top -= 1;
+        return stk->arr[stk->top+1];
+    }
+}
+
+void push(stack *stk, char x){
+    if(stk->top == stk->size - 1){
+        printf("Stack is Full!\n");
+    }
+    else{
+        stk->top += 1;
+        stk->arr[stk->top] = x;
+    }
+}
+
+int priority(char x){
+    if(x == '-' || x == '+'){
+        return 1;
+    }
+    else if(x == '*' || x == '/'){
+        return 2;
+    }
+    else if(x == '^'){
+        return 3;
+    }
+    return 0;
+}
+
+int main(){
+    char exp[100];
+    scanf("%s", &exp);
+    stack stk;
+    stk.top = -1;
+    stk.size = 100;
+    int j = 0;
+    char resArray[100];
+    strrev(exp);
+    for(int i = 0; i<strlen(exp); i++){
+        if(exp[i] == '+' || exp[i] == '-' || exp[i] == '*' || exp[i] == '/' || exp[i] == '^'){
+            if(priority(exp[i]) >= priority(stk.arr[stk.top])){
+                push(&stk, exp[i]);
+            }
+            else{
+                while(priority(exp[i]) < priority(stk.arr[stk.top]) && stk.top != -1){
+                    resArray[j] = pop(&stk);
+                    j++;
+                    //printf("%c",pop(&stk));
+                }
+                push(&stk, exp[i]);
+            }
+        }
+        else if(exp[i] == '('){
+            push(&stk, exp[i]);
+        }
+        else if(exp[i] == ')'){
+            while(stk.arr[stk.top] != '('){
+                resArray[j] = pop(&stk);
+                j++;
+                //printf("%c", pop(&stk));
+            }
+            pop(&stk);
+        }
+        else{
+            resArray[j] = exp[i];
+            j++;
+            //printf("%c",exp[i]);
+        }
+    }
+    strrev(resArray);
+    printf("%s", resArray);
+}
