@@ -1,25 +1,21 @@
-name: Enable automerge on dependabot PRs
+name: Update cms/master
 
 on:
-  # See note below about using pull_request_target
-  pull_request_target:
+  push:
+    branches:
+      - master
 
 jobs:
-  automerge:
-    name: Enable automerge on dependabot PRs
+  update-cms-master:
+    name: Merge master into release after a PR is merged
     runs-on: ubuntu-latest
     steps:
-      - name: Enable automerge on dependabot PRs
-        uses: daneden/enable-automerge-action@v1
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: merge
+        uses: mtanzi/action-automerge@v1
+        id: merge
         with:
-          # A personal access token that you have generated and saved in the
-          # repo or org’s encrypted secrets
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
-          # The name of the PR author to enable automerge for
-          # Defaults to dependabot[bot]
-          allowed-author: "dependabot[bot]"
-
-          # Allowed values: MERGE | SQUASH | REBASE
-          # Defaults to MERGE
-          merge-method: MERGE
+          github_token: ${{ github.token }}
+          source: 'master'
+          target: 'release'
