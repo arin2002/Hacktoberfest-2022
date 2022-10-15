@@ -1,4 +1,4 @@
-/* Given a string and reverse each word at the smae position without altering sequence of words.
+/* Given a string and reverse each word at the same position without altering sequence of words.
 Examples : 
 Input: - Enter the String:
        - This is a test string
