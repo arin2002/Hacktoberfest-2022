@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int element;
+    struct node *next;
+} *head = NULL, *p;
+
+void insertBegin(int x)
+{
+    struct node *newnode;
+    newnode = (struct node *)malloc(sizeof(struct node));
+    newnode->element = x;
+    if (head == NULL)
+    {
+        head = newnode;
+        newnode->next = head;
+    }
+    else
+    {
+        p = head;
+        while (p->next != head)
+        {
+            p = p->next;
+        }
+        p->next = newnode;
+        newnode->next = head;
+        head = newnode;
+    }
+}
+
+void insertLast(int x)
+{
+    struct node *newnode;
+    newnode = (struct node *)malloc(sizeof(struct node));
+    newnode->element = x;
+    if (head == NULL)
+    {
+        head = newnode;
+        newnode->next = head;
+    }
+    else
+    {
+        p = head;
+        while (p->next != head)
+        {
+            p = p->next;
+        }
+        p->next = newnode;
+        newnode->next = head;
+    }
+}
+
+void deleteLL(int x)
+{
+    if (head == NULL)
+    {
+        printf("Empty Linked List\n");
+    }
+    else
+    {
+        p = head;
+        while (p->next->element != x)
+        {
+            p = p->next;
+        }
+        p->next = p->next->next;
+    }
+}
+
+void display()
+{
+    p = head;
+    while (p->next != head)
+    {
+        printf("%d -> ", p->element);
+        p = p->next;
+    }
+    printf("%d -> ", p->element);
+    printf("%d\n", head->element);
+}
+
+int main()
+{
+    insertBegin(1);
+    display();
+    insertBegin(2);
+    display();
+    insertBegin(3);
+    display();
+    insertBegin(4);
+    display();
+    insertLast(5);
+    display();
+    insertLast(6);
+    display();
+    deleteLL(6);
+    display();
+}
