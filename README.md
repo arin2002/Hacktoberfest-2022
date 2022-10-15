@@ -1,5 +1,5 @@
-# Coding-questions
-Collection Of the Important Coding Questions 
+# Coding-Questions
+This Repository have Collection of the Important Coding Questions. 
  
 # Getting Started 
 
