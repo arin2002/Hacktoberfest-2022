@@ -1,8 +1,8 @@
-name: Label // change it before commit
+name: Label 
 on: 
   pull_request:
     branches:
-      - main // destination branch where this workflow will trigger
+      - main 
 
 jobs:
   label:
@@ -12,4 +12,4 @@ jobs:
     - uses: actions/labeler@v2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        configuration-path: .github/labeler.yml  //change it before commit
+        configuration-path: .github/labeler.yml  
