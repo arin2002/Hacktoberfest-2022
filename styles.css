@@ -1,0 +1,32 @@
+#allPage {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: #808080;
+	width: 780px;
+	margin-right: auto;
+	margin-left: auto;
+}
+h1 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-variant: small-caps;
+	text-transform: capitalize;
+	font-weight: bold;
+	background-color: #EA8326;
+	color: #FFFFFF;
+}
+
+legend {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	color: #EA8326;
+	font-size: large;
+}
+footer {
+	color: #FFFFFF;
+	background-color: #EA8326;
+}
+a:link {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a:hover {
+	text-decoration: underline;
+}
