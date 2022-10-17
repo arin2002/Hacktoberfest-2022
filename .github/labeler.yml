@@ -1,1 +1,2 @@
-hacktoberfest-accepted: '*'
+hacktoberfest-accepted: ['list', 'of', 'globs']
+hacktoberfest-accepted: ['list', 'of', 'globs']
