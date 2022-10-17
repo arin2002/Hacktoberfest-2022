@@ -4,31 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Age Calculator</title>
+    <title>Pradyuman's Calcy</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="base">
-            <h4>Age Calculator</h4>
-          </div>
-          <div class="block">
-            <p class="title">Date</p>
-            <input type="text" name="date" id="date" placeholder="dd" required="required" minlength="1" maxlength="2" />
-          </div>
-          <div class="block">
-            <p class="title">Month</p>
-            <input type="text" name="month" id="month" placeholder="mm" required="required" minlength="1" maxlength="2" />
-          </div>
-          <div class="block">
-            <p class="title">Year</p>
-            <input type="text" name="year" id="year" placeholder="yyyy" required="required" minlength="4" maxlength="4" />
-          </div>
-          <div class="base">
-            <input type="button" name="submit" value="Submit" onclick="age()" />
-           </div>
-          <div id="age"></div>
+        <section id="Display-area">
+            <div class="currentInput"></div>
+            <div class="answerScreen">0</div>
+        </section>
+        <section class="keypad-btns">
+            <button type="button" class="fun_btn" id="clear" value="">C</button>
+            <button type="button" class="fun_btn" id="erase" value="">&#11013;</button>
+            <button type="button" class="fun_btn" value="/">/</button>
+            <button type="button" class="fun_btn" value="%">%</button>
+            <button type="button" class="num_btn" value="7">7</button>
+            <button type="button" class="num_btn" value="8">8</button>
+            <button type="button" class="num_btn" value="2">9</button>
+            <button type="button" class="fun_btn" value="*">x</button>
+            <button type="button" class="num_btn" value="4">4</button>
+            <button type="button" class="num_btn" value="5">5</button>
+            <button type="button" class="num_btn" value="6">6</button>
+            <button type="button" class="fun_btn" value="-">-</button>
+            <button type="button" class="num_btn" value="1">1</button>
+            <button type="button" class="num_btn" value="2">2</button>
+            <button type="button" class="num_btn" value="3">3</button>
+            <button type="button" class="fun_btn" value="+">+</button>
+            <button type="button" class="num_btn" value="00">00</button>
+            <button type="button" class="num_btn" value="0">0</button>
+            <button type="button" class="num_btn" value=".">.</button>
+            <button type="button" class="fun_btn" id="evaluate" value="">=</button>
+        </section>
     </div>
+    <script src="calcy.js"></script>
 </body>
-<script src="index.js"></script>
 </html>
