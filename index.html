@@ -1,41 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pradyuman's Calcy</title>
-    <link rel="stylesheet" href="style.css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<script src="bmr.js"></script>
+<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+<title>BMR Calculator</title>
+<meta content="BMR Calculator, html, JS" name="keywords">
+<meta content="BMR Calculator using html with Javascript" name="description">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.auto-style2 {
+	text-align: right;
+}
+.auto-style3 {
+	font-weight: normal;
+}
+.auto-style4 {
+	text-align: left;
+	font-weight: normal;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <section id="Display-area">
-            <div class="currentInput"></div>
-            <div class="answerScreen">0</div>
-        </section>
-        <section class="keypad-btns">
-            <button type="button" class="fun_btn" id="clear" value="">C</button>
-            <button type="button" class="fun_btn" id="erase" value="">&#11013;</button>
-            <button type="button" class="fun_btn" value="/">/</button>
-            <button type="button" class="fun_btn" value="%">%</button>
-            <button type="button" class="num_btn" value="7">7</button>
-            <button type="button" class="num_btn" value="8">8</button>
-            <button type="button" class="num_btn" value="2">9</button>
-            <button type="button" class="fun_btn" value="*">x</button>
-            <button type="button" class="num_btn" value="4">4</button>
-            <button type="button" class="num_btn" value="5">5</button>
-            <button type="button" class="num_btn" value="6">6</button>
-            <button type="button" class="fun_btn" value="-">-</button>
-            <button type="button" class="num_btn" value="1">1</button>
-            <button type="button" class="num_btn" value="2">2</button>
-            <button type="button" class="num_btn" value="3">3</button>
-            <button type="button" class="fun_btn" value="+">+</button>
-            <button type="button" class="num_btn" value="00">00</button>
-            <button type="button" class="num_btn" value="0">0</button>
-            <button type="button" class="num_btn" value=".">.</button>
-            <button type="button" class="fun_btn" id="evaluate" value="">=</button>
-        </section>
-    </div>
-    <script src="calcy.js"></script>
+<div id="allPage">
+
+<form name="BMR">
+
+<div><h1>BMR Calculator</h1></div>
+	<table style="width: 100%">
+		<tr>
+			<td style="width: 210px">
+			<h4 class="auto-style4">Unit</h4>
+			</td>
+			<td>
+			<select id="mySelect" tabindex="1">
+  <option value="Imperial">Imperial BMR Calculator (pound / inch)
+  <option value="Metric">Metric BMR Calculator (kg / cm)
+</select>
+		</tr>
+		</table>
+			<fieldset><legend>
+			Information</legend><table style="width: 100%">
+		<tr>
+			<td style="width: 260px; height: 26px;">
+			<h4 class="auto-style3">Gender</h4>
+			</td>
+			<td style="height: 26px">
+			<select name="Gender" size="1" tabindex="3">
+				<option id="Man">Man</option>
+				<option id="Woman">Woman</option>
+				</select>
+			</td>
+		</tr>
+
+				<tr>
+			<td style="width: 260px; height: 26px;"><h4 class="auto-style3">Age</h4></td>
+			<td style="height: 26px"><input type="text" name="Age" tabindex="5" size="2"></td>
+		</tr>
+
+		<tr>
+			<td style="width: 260px; height: 26px;"><h4 class="auto-style3">Weight</h4></td>
+			<td style="height: 26px">
+			<input type="text" name="Weight" tabindex="7" size="3"> </td>
+		</tr>
+
+		<tr>
+			<td style="width: 260px"><h4 class="auto-style3">Height</h4></td>
+			<td><input type="text" name="Height" tabindex="9" size="3"></td>
+		</tr>
+
+		<tr>
+			<td style="width: 260px; height: 26px;"><h4 class="auto-style3">Activity level</h4></td>
+			<td style="height: 26px">
+			<select name="Activity" tabindex="11">
+				<option id="light">I am sedentary or light active</option>
+				<option id="moderately">I am active or moderately active</option>
+				<option id="vigorously">I am vigorously active</option>
+				</select>
+			</td>
+
+		</tr>
+		<tr>
+			<td style="width: 260px" class="auto-style2">
+			<input type="reset" value="Clear form" tabindex="15" style="height: 50px"></td>
+			<td id="allPage">
+			<input type="button" value="Calculate BMR" onclick="CalculateBMR()" tabindex="13" style="height: 50px"></td>
+		</tr>
+
+		</table></fieldset>
+				<fieldset><legend>
+				Result</legend>
+		<table style="width: 100%">
+			<tr>
+				<td style="width: 220px;">BMR</td>
+			<td><input type="text" name="BMRResult"></td></tr>
+
+		<tr>
+			<td style="width: 220px">Total intake</td>
+			<td><input type="text" name="Result"></td></tr>
+			</table></fieldset>
+</form>
 </body>
 </html>
