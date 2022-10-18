@@ -40,7 +40,7 @@ int getNthUglyNo(int n){
 
 
 int main(){
-    int n;
+    int n; 
     cout<<"Enter number : ";
     cin>>n;
     cout<<getNthUglyNo(n);
