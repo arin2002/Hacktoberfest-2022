@@ -1,22 +1,22 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class DayofYear
+class dayOfYear
 {
 private:
 	int day;
+
 public:
-	DayofYear(int d)
+	dayOfYear(int d)
 	{
 		day = d;
-
 	}
 	void Print()
 	{
 
-		  string months[] = {" ","January","Feburary","March","April","May","June","July","August","September","October","November","December" };
-	        int DaysInEachMonth[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
-		if (day < 0 && day>365)
+		string months[] = {" ", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+		int DaysInEachMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		if (day < 0 && day > 365)
 		{
 			cout << "ERROR......!" << endl;
 			exit(0);
@@ -29,14 +29,13 @@ public:
 		{
 			day -= DaysInEachMonth[1];
 			cout << months[2] << " " << day;
-			
 		}
-		else if (day > 59 && day <=90)
-		{   
+		else if (day > 59 && day <= 90)
+		{
 			day -= DaysInEachMonth[1] + DaysInEachMonth[2];
 			cout << months[3] << " " << day;
 		}
-		else if (day >90 && day <=120)
+		else if (day > 90 && day <= 120)
 		{
 			day -= DaysInEachMonth[1] + DaysInEachMonth[2] + DaysInEachMonth[3];
 			cout << months[4] << " " << day;
@@ -46,7 +45,7 @@ public:
 			day -= DaysInEachMonth[1] + DaysInEachMonth[2] + DaysInEachMonth[3] + DaysInEachMonth[4];
 			cout << months[5] << " " << day;
 		}
-		else if (day >151 && day <= 181)
+		else if (day > 151 && day <= 181)
 
 		{
 			day -= DaysInEachMonth[1] + DaysInEachMonth[2] + DaysInEachMonth[3] + DaysInEachMonth[4] + DaysInEachMonth[5];
@@ -67,7 +66,7 @@ public:
 			day -= DaysInEachMonth[1] + DaysInEachMonth[2] + DaysInEachMonth[3] + DaysInEachMonth[4] + DaysInEachMonth[5] + DaysInEachMonth[6] + DaysInEachMonth[7] + DaysInEachMonth[8];
 			cout << months[9] << " " << day;
 		}
-		else if (day >273 && day <= 304)
+		else if (day > 273 && day <= 304)
 		{
 			day -= DaysInEachMonth[1] + DaysInEachMonth[2] + DaysInEachMonth[3] + DaysInEachMonth[4] + DaysInEachMonth[5] + DaysInEachMonth[6] + DaysInEachMonth[7] + DaysInEachMonth[8] + DaysInEachMonth[9];
 			cout << months[10] << " " << day;
@@ -82,13 +81,11 @@ public:
 			day -= DaysInEachMonth[1] + DaysInEachMonth[2] + DaysInEachMonth[3] + DaysInEachMonth[4] + DaysInEachMonth[5] + DaysInEachMonth[6] + DaysInEachMonth[7] + DaysInEachMonth[8] + DaysInEachMonth[9] + DaysInEachMonth[10] + DaysInEachMonth[11];
 			cout << months[12] << " " << day;
 		}
-
 	}
-
 };
 int main()
 {
-	DayofYear d[5] = {4,365,78,9,100};
+	dayOfYear d[5] = {4, 365, 78, 9, 100};
 	for (int i = 0; i < 5; i++)
 	{
 		d[i].Print();
