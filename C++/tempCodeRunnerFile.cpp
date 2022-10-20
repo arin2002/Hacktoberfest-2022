@@ -1,0 +1,2 @@
+Rectangle::area();
+        Triangle::area();
