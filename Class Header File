@@ -1,0 +1,22 @@
+class Rectangle {
+private://Data Members are private
+	double length;
+	double width;
+public://Functions are private
+	Rectangle();//constructor
+	Rectangle(double, double); // parametrized constructor
+	~Rectangle(); // destructor
+	void setLength(double);
+	void setWidth(double);
+	double getLength()const;
+	double  getWidth()const;
+	double getArea()const;
+	double getPerimeter()const;
+	void draw()const;
+	//******************************
+	//const functions are those in which we cannot change the value of data members(length/width)
+	//for e.g:all getters functions 
+	//**constructors ,destructors ,and settors(mutators) can not be const!
+	//******************************
+};
+
