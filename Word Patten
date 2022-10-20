@@ -1,0 +1,34 @@
+# include<iostream>
+using namespace std;
+int main()
+{
+	int n = 0;
+	char a[40];
+	cin.get(a, 40);
+	cout << "**********\n*";
+	for (int i = 0; a[i] != '\0'; i++)
+	{
+		if (a[i] != ' ')
+		{
+			cout << a[i];
+			n++;
+		}
+		else
+		{
+			while (n < 8)
+			{
+				cout << " ";
+				n++;
+			}
+			n = 0;
+			cout << "*\n*";
+		}
+	}
+	while (n < 8)
+	{
+		cout << " ";
+		n++;
+	}
+	cout <<"*\n**********";
+	return 0;
+}
