@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+class ObjectTracker {
+	static int objCount;
+public:
+	ObjectTracker()
+	{
+		objCount++;
+		cout << "\nCurrent Object Count = " << objCount;
+	}
+	static int getObjectCount()
+	{
+		return objCount;
+	}
+	~ObjectTracker()
+	{
+		cout << "\nRemove  Object : " << objCount--;
+	}
+};
+int ObjectTracker::objCount;
+int main()
+{
+	int size = 0;
+	cout<<"Enter NO of Objects to be created : ";
+	cin>>size;
+	ObjectTracker* arr = new ObjectTracker[size];
+	for (int i = 1; i <= size; i++)
+	{
+		arr[i];
+	}
+	delete[] arr;
+	arr = 0;
+	return 0;
+}
