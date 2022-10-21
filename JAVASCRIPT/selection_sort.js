@@ -26,4 +26,4 @@ function selectionSort(inputArr) {
 let array = [99, 55, 66, 22, 33, 77, 88, 11, 44]
 
 selectionSort(array);
-console.log(inputArr);
+console.log(array);
