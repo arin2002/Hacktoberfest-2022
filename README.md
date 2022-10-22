@@ -1,71 +1,27 @@
-# Coding-Questions
-This Repository have Collection of the Important Coding Questions. 
- 
-# Getting Started 
+![header](https://capsule-render.vercel.app/api?type=rect&color=gradient&height=100&section=footer&text=Coding+Questions&fontSize=50)
 
-These are a set of instructions to follow for you to setup the project locally .
+[![GitHub issues](https://img.shields.io/github/issues/arin2002/Coding-questions?style=for-the-badge&logo=appveyor)](https://github.com/arin2002/Coding-questions/issues)
+[![GitHub forks](https://img.shields.io/github/forks/arin2002/Coding-questions?style=for-the-badge&logo=appveyor)](https://github.com/arin2002/Developer-Cheatsheet/network)
+[![GitHub stars](https://img.shields.io/github/stars/arin2002/Coding-questions?style=for-the-badge&logo=appveyor)](https://github.com/Suryansh1720001/Coding-questions/stargazers)
 
-# Fork the project repository
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
 
-Fork the repository to you GitHub .
+![https://img.shields.io/badge/-Hacktoberfest_2022-darkred?style=flat&logo=Hacktoberfest&logoColor=white](https://img.shields.io/badge/Hacktoberfest-2022-red)&nbsp;
 
-# Clone your fork
-
-Click on the code drop down menu. Now you can either download the zip file and extract it on your local system.
-
-```bash
-git clone https://github.com/arin2002/Coding-questions.git
-```
-
-#  Navigate to your local folder
-
-Since the clone was downloaded into a subdirectory of your working directory, you can navigate to it using: cd NAME_OF_REPOSITORY.
-
-```bash
-cd Coding-questions
-```
-
-# Create a new branch
-
-Use git checkout -b BRANCH_NAME to create a new branch and then immediately switch to it.
-
-```bash
-git checkout -b branch_name
-```
-
-Use git branch to show your local branches.
-
-```bash
-git branch
-```
-
-#  Make changes in your local repository
-
-Use a text editor or IDE to make the changes you planned to the files in your local repository. Because you checked out a branch in the previous step, any edits you make will only affect that branch.
-
-#  Git Add and Commit your changes
-
-Use git add -A or git add . to stage your changes and `git commit -m "DESCRIPTION OF CHANGES"` to commit them.
-
- ```bash
-git add .
-git commit -m"<Description of changes>"
-```
-
-#  Push your changes to your fork
-
-When you are done making all of your changes, upload these changes to your fork using git push origin BRANCH_NAME.
-
-  ```bash
-git push origin <BRANCH_NAME>
-```
-
-#  Begin the pull request
-
-Return to your fork on GitHub, and refresh the page. You may see a highlighted area that displays your recently pushed branch.
-
-# Create the pull request
-
-Before submitting the pull request, you first need to describe the changes you made .
+## Want to Contribute😎:
+- Refer to <a href="CONTRIBUTING.md">Contributing Guide</a><br>
+- Don't forget to follow [@arin2002](https://github.com/arin2002) ⭐😊
 
 
+And yes it is open source with a [public repository](https://github.com/arin2002/Coding-questions)
+ on GitHub.
+
+
+## Our Amazing Contributors 👨‍👨‍👦‍👦❤️
+Thanks to all the contributors who worked for this project to stay alive! 😊😎
+
+<a align="center" href="https://github.com/arin2002/Coding-questions/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=arin2002/Coding-questions&&max=817" />
+</a>
