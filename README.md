@@ -1,8 +1,8 @@
 ![header](https://capsule-render.vercel.app/api?type=rect&color=gradient&height=100&section=footer&text=Coding+Questions&fontSize=50)
 
 [![GitHub issues](https://img.shields.io/github/issues/arin2002/Coding-questions?style=for-the-badge&logo=appveyor)](https://github.com/arin2002/Coding-questions/issues)
-[![GitHub forks](https://img.shields.io/github/forks/arin2002/Coding-questions?style=for-the-badge&logo=appveyor)](https://github.com/arin2002/Developer-Cheatsheet/network)
-[![GitHub stars](https://img.shields.io/github/stars/arin2002/Coding-questions?style=for-the-badge&logo=appveyor)](https://github.com/Suryansh1720001/Coding-questions/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/arin2002/Coding-questions?style=for-the-badge&logo=appveyor)](https://github.com/arin2002/Coding-questions/network)
+[![GitHub stars](https://img.shields.io/github/stars/arin2002/Coding-questions?style=for-the-badge&logo=appveyor)](https://github.com/arin2002/Coding-questions/stargazers)
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
