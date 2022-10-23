@@ -1,5 +1,5 @@
-hacktoberfest-accepted:
-- "*"
+# hacktoberfest-accepted:
+# - "*"
 
 hacktoberfest-accepted:
 - "**"
