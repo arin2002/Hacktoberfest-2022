@@ -9,6 +9,9 @@
 [![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
 
 ![https://img.shields.io/badge/-Hacktoberfest_2022-darkred?style=flat&logo=Hacktoberfest&logoColor=white](https://img.shields.io/badge/Hacktoberfest-2022-red)&nbsp;
+<p align="center" >
+  <img src="./Posters/hacktoberfest 2022.png" width="1000" height="750"> 
+</p>
 
 ## Want to Contribute😎:
 - Refer to <a href="https://github.com/arin2002/Coding-questions/blob/main/Contributing.md">Contributing Guide</a><br>
