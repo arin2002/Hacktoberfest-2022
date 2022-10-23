@@ -1,15 +1,14 @@
-name: Label 
-on: 
-  pull_request:
-    branches:
-      - main 
+name: "Pull Request Labeler"
+on:
+- pull_request_target
 
 jobs:
-  label:
+  triage:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/labeler@v2
+    - uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        configuration-path: .github/labeler.yml  
