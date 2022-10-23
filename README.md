@@ -21,6 +21,13 @@
 And yes it is open source with a [public repository](https://github.com/arin2002/Coding-questions)
  on GitHub.
 
+# Guidelines👍:
+Before pushing code please go through our guidelines:
+1. Always push the code in the specified folder.
+2. Mention proper name for the code before making PR.
+3. Repetetive Pull Requests with same code in the same language won't be counted and will be marked as spam.
+4. If you want to push the code in some other language which is not present in this repo, make a seperate folder with language name and then push it. 
+5. Explain your code with proper comments along with problem statement(especially for DSA). It's better if you can write time and space complexities.
 
 ## Our Amazing Contributors 👨‍👨‍👦‍👦❤️
 Thanks to all the contributors who worked for this project to stay alive! 😊😎
