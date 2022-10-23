@@ -30,6 +30,6 @@ labels:
     ignore: false
   merged: 
     name: "hacktoberfest-accepted"
-    color: "#6F42C1"
+    color: "#FFA500"
     description: "Pull Request has been merged successfully"
     ignore: false
