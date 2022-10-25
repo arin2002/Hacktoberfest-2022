@@ -1,37 +1,47 @@
-package deque;
+package map;
 
-import java.util.ArrayDeque;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class MainClass {
 
 	public static void main(String[] args) {
 		
-		 ArrayDeque <Integer> mq = new ArrayDeque<>();
-//		 mq.offerFirst(45);
-		 mq.addFirst(89);
-//		 mq.offerFirst(12);
-//		 
-//		 mq.pop();
-//		 System.out.println(mq.peekFirst());
-		 
-		 Mydeque <Integer> md = new Mydeque <> () ;
-		 
-		 md.addLast(13);
-//		 md.addFirst(46);
-//		 md.addFirst(78);
-//		 md.addLast(49);
-//		 md.addLast(99);
-//		 md.addFirst(8);
-		 
-		 System.out.println(md.removeLast());
-//		 md.addFirst(9);
-//		 System.out.println(md.removeLast());
-		 System.out.println(md.getFirst());
-//		 System.out.println(md.removeFirst());
-//		 System.out.println(md.getLast());
-//		 System.out.println(md.removeFirst());
-//		 System.out.println(md.getFirst());
-//		 System.out.println(md.getLast());
+		Map<String , Integer> number = new HashMap <>() ;
+		
+		number.put("one", 1) ;
+		number.put("two", 2) ;
+		number.put("three", 3) ;
+		
+		number.putIfAbsent("one" , 10) ;
+		number.replace("one", 2 , 5);
+	
+		System.out.println(number.entrySet());
+		
+		
+		Set<Entry <String , Integer >> entries = number.entrySet() ;
+		
+		for(Entry<String , Integer> entry : entries) {
+			entry.setValue(entry.getValue() * 100 );
+		}
+		System.out.println(number);
+		
+		System.out.println(getHash("azmal"));
+		System.out.println(getHash("#"));
+		
+		char c = 'a'; 
+        int ascii = c; 
+        System.out.println("The ASCII value of " + c + " is: " + ascii); 
+
+		
+	}
+	
+	public static int getHash(String s ) {
+		int hash = 0;
+		for(int i=0 ; i<s.length() ; i++) {
+			hash += s.charAt(i);
+		}
+		return hash ;
 	}
 
 }
