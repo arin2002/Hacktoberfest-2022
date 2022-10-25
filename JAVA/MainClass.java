@@ -1,31 +1,34 @@
-package avl;
+package queue;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class MainClass {
 
 	public static void main(String[] args) {
-	
-		AVLTree tree = new AVLTree ();
-		tree.insert(14);
-		tree.insert(17);
-		tree.insert(11);
-		tree.insert(7);
-		tree.insert(53);
-		tree.insert(4);
-		tree.insert(13);
-		tree.insert(12);
-		tree.insert(8);
-		tree.insert(60);
-		tree.insert(19);
-		tree.insert(16);
-		tree.insert(20);
 		
-		tree.delete(8);
-		tree.delete(7);
-		tree.delete(11);
-		tree.delete(14);
-		tree.delete(17);
+		Queue <Integer> q = new LinkedList <> () ;
 		
-		tree.display();
+//		q.add(45);
+//		q.add(12);
+//		q.add(32);
+//		q.add(89);
+//		System.out.println(q);
+//		System.out.println(q.remove());
+//		System.out.println(q.poll());
+//		System.out.println(q.peek());
+		MyQueue <Integer> mq = new MyQueue<> () ;
+		mq.enqueue(45);
+		mq.enqueue(89);
+//		mq.enqueue(5);
+//		mq.enqueue(9);
+		System.out.println(mq.peek());
+		System.out.println(mq.dequeue());
+		System.out.println(mq.peek());
+		System.out.println(mq.dequeue());
+		System.out.println(mq.peek());
+		mq.enqueue(5);
+		System.out.println(mq.peek());
 	}
 
 }
