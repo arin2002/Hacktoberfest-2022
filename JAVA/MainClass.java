@@ -1,65 +1,47 @@
-package comparatorsAndComparables;
+package map;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class MainClass {
 
 	public static void main(String[] args) {
 		
-		List <Student> students = new ArrayList<>();
+		Map<String , Integer> number = new HashMap <>() ;
 		
-			students.add(new Student(10 , "Thor"));
-			students.add(new Student(20 , "Fury"));
-			students.add(new Student(43 , "Thanos"));
-			students.add(new Student(10 , "Tony"));
-			students.add(new Student(78 , "Tony"));
-			
-			
-//			Collections.sort(students);
-			
-//			Collections.sort(students , new SortByNameThenMarks());
-			
-//			Collections.sort(students , new Comparator<Student>() {
-//				@Override
-//				public int compare(Student o1, Student o2) {
-//					if(o1.name.equals(o2.name)) {
-//						return o1.marks - o2.marks ;
-//					} else {
-//						return o1.name.compareTo(o2.name);
-//					}
-//				}
-//			});
-			
-//			Collections.sort(students , (Student o1, Student o2) ->{
-//					if(o1.name.equals(o2.name)) {
-//						return o1.marks - o2.marks ;
-//					} else {
-//						return o1.name.compareTo(o2.name);
-//					}
-//				});
-			
-//			Collections.sort(students , (o1 , o2) -> o1.name.compareTo(o2.name)) ;
-			
-			Collections.sort(students , Comparator.comparing(Student::getName).thenComparing(Student::getMarks).reversed());
-			
-			students.forEach(System.out::println);
-			
-	//		The above is same as the below one 
-//			for(int i=0 ; i<students.size() ; i++) {
-//				System.out.println(students.get(i));
-//			}
-		}
-	}
+		number.put("one", 1) ;
+		number.put("two", 2) ;
+		number.put("three", 3) ;
+		
+		number.putIfAbsent("one" , 10) ;
+		number.replace("one", 2 , 5);
 	
-class SortByNameThenMarks implements Comparator <Student>{
-	
-	@Override
-	public int compare(Student o1, Student o2) {
-		if(o1.name.equals(o2.name)) {
-			return o1.marks - o2.marks ;
-		} else {
-			return o1.name.compareTo(o2.name);
+		System.out.println(number.entrySet());
+		
+		
+		Set<Entry <String , Integer >> entries = number.entrySet() ;
+		
+		for(Entry<String , Integer> entry : entries) {
+			entry.setValue(entry.getValue() * 100 );
 		}
-	}
-}
+		System.out.println(number);
+		
+		System.out.println(getHash("azmal"));
+		System.out.println(getHash("#"));
+		
+		char c = 'a'; 
+        int ascii = c; 
+        System.out.println("The ASCII value of " + c + " is: " + ascii); 
 
+		
+	}
+	
+	public static int getHash(String s ) {
+		int hash = 0;
+		for(int i=0 ; i<s.length() ; i++) {
+			hash += s.charAt(i);
+		}
+		return hash ;
+	}
+
+}
