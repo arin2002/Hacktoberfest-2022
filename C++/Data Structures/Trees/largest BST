@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+#include<vector>
+#include<stack>
+using namespace std;
+
+// initilize pointers for tree
+struct Node
+{
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val){
+        data=val;
+        left=NULL;right=NULL;
+    }
+};
+
+// storing information of bst
+struct info
+{
+    int size;int max;int min;int ans;bool isBST;
+};
+
+// finding largest BST
+info largestBST(Node* root){
+    if(root==NULL){
+        return {0,INT_MIN,INT_MAX,0,true};
+    }
+    else if(root->left==NULL && root->right==NULL){
+        return {1,root->data,root->data,1,true};
+    }
+    // finding largest bst in left and right subtree
+    info leftinfo=largestBST(root->left);
+    info rightinfo=largestBST(root->right);
+
+    info curr;//storing current information of largest bst
+    curr.size=(1+leftinfo.size+rightinfo.size);
+    
+    // comparsion to get largest bst
+    if(leftinfo.isBST && rightinfo.isBST && rightinfo.min>root->data && leftinfo.max<root->data){
+        curr.min=min(leftinfo.min,min(root->data,rightinfo.min));
+        curr.max=max(rightinfo.max,max(root->data,leftinfo.max));
+        curr.ans=curr.size;
+        curr.isBST=true;
+        return curr;
+    }
+    // maximize the answer
+    curr.ans=max(leftinfo.ans,rightinfo.ans);
+    curr.isBST=false;
+    return curr;
+}
+
+int main(){
+    Node* root=new Node(15);
+    root->left=new Node(20); 
+    root->left->left=new Node(5); 
+    root->right=new Node(30);
+    cout<<largestBST(root).ans<<endl;
+
+    return 0;
+}
