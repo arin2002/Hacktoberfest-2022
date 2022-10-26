@@ -1,54 +1,40 @@
-# Quick sort in Python
+from random import randint
+def qsort(a, start, end):
+    """ quicksort in O(nlogn) and no extra
+    memory. In place implementation
+    >>> from random import sample
+    >>> rand_list = [sample(range(100), 10) for j in range(10)]
+    >>> sortedresult = [sorted(r) for r in rand_list]
+    >>> for r in rand_list: qsort(r, 0, len(r)-1)
+    >>> result = [sortedresult[i] == rand_list[i] for i in range(len(rand_list))]
+    >>> print sum(result)
+    10
+    """
+    if start < end:
+        p = choosepivot(start, end)
+        if p != start:
+            a[p], a[start] = a[start], a[p]
+        equal = partition(a, start, end)
+        qsort(a, start, equal-1)
+        qsort(a, equal+1, end)
 
-# function to find the partition position
-def partition(array, low, high):
+def partition(a, l, r):
+    """ partition array with pivot at a[0]
+    in the array a[l...r] that returns the
+    index of pivot element
+    """
+    pivot, i = a[l], l+1
+    for j in range(l+1, r+1):
+        if a[j] <= pivot:
+            a[i],a[j] = a[j],a[i]
+            i += 1
+    # swap pivot to its correct place
+    a[l], a[i-1] = a[i-1], a[l]
+    return i-1
 
-  # choose the rightmost element as pivot
-  pivot = array[high]
+def choosepivot(s, e):
+    return randint(s,e)
 
-  # pointer for greater element
-  i = low - 1
-
-  # traverse through all elements
-  # compare each element with pivot
-  for j in range(low, high):
-    if array[j] <= pivot:
-      # if element smaller than pivot is found
-      # swap it with the greater element pointed by i
-      i = i + 1
-
-      # swapping element at i with element at j
-      (array[i], array[j]) = (array[j], array[i])
-
-  # swap the pivot element with the greater element specified by i
-  (array[i + 1], array[high]) = (array[high], array[i + 1])
-
-  # return the position from where partition is done
-  return i + 1
-
-# function to perform quicksort
-def quickSort(array, low, high):
-  if low < high:
-
-    # find pivot element such that
-    # element smaller than pivot are on the left
-    # element greater than pivot are on the right
-    pi = partition(array, low, high)
-
-    # recursive call on the left of pivot
-    quickSort(array, low, pi - 1)
-
-    # recursive call on the right of pivot
-    quickSort(array, pi + 1, high)
-
-
-data = [8, 7, 2, 1, 0, 9, 6]
-print("Unsorted Array")
-print(data)
-
-size = len(data)
-
-quickSort(data, 0, size - 1)
-
-print('Sorted Array in Ascending Order:')
-print(data)
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=True)
