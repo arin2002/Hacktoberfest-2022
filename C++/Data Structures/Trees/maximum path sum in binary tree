@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+#include<queue>
+using namespace std;
+
+// initilize pointers for tree
+struct Node
+{
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val){
+        data=val;
+        left=NULL;right=NULL;
+    }
+};
+// calculating maximum pathsum
+int maxpathUtil(Node* root,int &ans){
+    if(root==NULL){
+        return 0;
+    }
+    int left=maxpathUtil(root->left,ans);//calculating max sum in left path
+    int right=maxpathUtil(root->right,ans);//calculating max sum in right path
+
+    int nodeMax=max(max(root->data,root->data+left+right),max(root->data+left,root->data+right));
+    ans=max(ans,nodeMax);
+
+    int singlepath=max(root->data,max(root->data+left,root->data+right));
+
+    return singlepath;
+}
+
+int maxPathSum(Node* root){
+    int ans=INT_MIN;
+    maxpathUtil(root,ans);
+    return ans;
+}
+
+int main(){
+    Node* root=new Node(1);
+    root->left=new Node(2);
+    root->left->left=new Node(4);
+    root->left->right=new Node(5);
+    root->right=new Node(3);
+    root->right->left=new Node(6);
+    root->right->right=new Node(7);
+
+    cout<<maxPathSum(root);
+    return 0;
+}
