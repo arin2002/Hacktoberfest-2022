@@ -1,0 +1,15 @@
+def minion_game(string):
+    vowels='AEIOU'
+    count=0
+    count1=0
+    for i in range(len(string)):
+        if string[i] in vowels:
+            count+=len(string)-i
+        else:
+            count1+=len(string)-i
+    if count>count1:
+        print(f'player1 {count}')
+    elif count1>count:
+        print(f'player2 {count1}')
+    else:
+        print('Draw')
