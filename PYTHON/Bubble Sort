@@ -1,0 +1,18 @@
+//Bubble sort works on the repeatedly swapping of adjacent elements until they are not in the intended order. It is called bubble sort because the movement of array elements is just like the movement of air bubbles in the water. Bubbles in water rise up to the surface; similarly, the array elements in bubble sort move to the end in each iteration.
+
+
+def sorted(mylist):
+    length = len(mylist)
+    for i in range(length-1):
+        for j in range(i+1, length):
+            if (mylist[i]>mylist[j]):
+                mylist[i], mylist[j] = mylist[j], mylist[i]
+    return mylist
+
+# Enter each integer of list separated with space
+print("Enter the integers: ")
+num_list = list(map(int, input().split()))
+
+print("Your initial list was: ", num_list)
+sorted_list = sorted(num_list)
+print("Your sorted list is: ", sorted_list)

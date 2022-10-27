@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    int element;
+    struct node* next;
+}*top=NULL,*p;
+
+void display(){
+    p = top;
+    while(p != NULL){
+        printf("%d ", p->element);
+        p = p->next;
+    }
+    printf("\n");
+}
+
+void push(int x){
+    struct node* t;
+    t = (struct node*)malloc(sizeof(struct node));
+    if(t == NULL){
+        printf("Stack Overflow!\n");
+    }
+    else{
+        t->element = x;
+        t->next = top;
+        top = t;
+        display();
+    }
+}
+
+int pop(){
+    struct node* t;
+    t = (struct node*)malloc(sizeof(struct node));
+    int x = -1; // return value of popped element;
+    if(top == NULL){
+        printf("Stack Underflow!\n");
+    }
+    else{
+        p = top;
+        top = top->next;
+        x = p->element;
+        free(x);
+        display();
+    }
+    return x;
+}
+
+int topElement(){
+    if(top){
+        return top->element;
+    }
+    return -1;
+}
+
+int isFull(){
+    struct node* newnode;
+    struct node* t;
+    newnode = (struct node*)malloc(sizeof(struct node));
+    if(newnode){
+        t = newnode;
+        free(t);
+        return 1;
+    }
+    t = newnode;
+    free(t);
+    return 0;
+}
+
+
+int main(){
+    push(1);
+    push(2);
+    push(3);
+    push(4);
+    push(5);
+    push(6);
+    pop();
+    pop();
+    push(7);
+}
