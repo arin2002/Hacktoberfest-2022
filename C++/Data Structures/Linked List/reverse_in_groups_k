@@ -1,0 +1,23 @@
+class Solution
+{
+    public:
+    struct node *reverse (struct node *head, int k)
+    { 
+        // Complete this method
+        node* prev=NULL;
+        node* curr=head;
+        node* next=NULL;
+        int cnt=0;
+        //this part of code is smilialr to reverse a linked list code
+        while(curr!=NULL && cnt<k){
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+            cnt++;
+        }
+        if(next!=NULL)
+        head->next=reverse(next,k);
+        return prev;
+    }
+};
