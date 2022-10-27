@@ -1,0 +1,27 @@
+
+#include <bits/stdc++.h>
+using namespace std ;
+int countStepsTo1(int n){
+
+    /* Don't write main().
+     * Don't read input, it is passed as function argument.
+     * Return output and don't print it.
+     */
+	int* arr = new int[n+1] ;
+    arr[0] = 0 ;
+    arr[1] = 0 ;
+    for(int i=2;i<=n;i++) {
+        int x = arr[i-1] ;
+        int y,z ;
+        if(i%2 == 0)
+            y = arr[i/2] ;
+        else
+            y = INT_MAX ;
+        if(i%3 == 0)
+            z = arr[i/3] ;
+        else
+            z = INT_MAX ;
+        arr[i] = 1+min(x,min(y,z)) ;
+    }
+    return arr[n] ;
+}
