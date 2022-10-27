@@ -1,0 +1,38 @@
+// Following is the Binary Tree node structure
+/**************
+class BinaryTreeNode {
+    public : 
+    T data;
+    BinaryTreeNode<T> *left;
+    BinaryTreeNode<T> *right;
+
+    BinaryTreeNode(T data) {
+        this -> data = data;
+        left = NULL;
+        right = NULL;
+    }
+};
+***************/
+
+BinaryTreeNode<int>* buildTree(int *postorder, int pL, int *inorder, int iL) {
+   // Write your code here
+	if(pL != iL)
+        return NULL;
+    if(pL == 0)
+        return NULL;
+    
+    int root = postorder[pL-1];
+    BinaryTreeNode<int>* rootN = new BinaryTreeNode<int>(root);
+    int idx=0;
+    for(int i=0;i<iL;i++) {
+        if(inorder[i] == root)
+        {
+            idx = i;
+            break;
+        }
+    }
+    rootN->left = buildTree(postorder , idx, inorder, idx);
+    rootN->right = buildTree(postorder+idx, pL-idx-1, inorder+1+idx, pL-idx-1);
+        
+    return rootN;
+}
