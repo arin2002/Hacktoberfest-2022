@@ -1,16 +1,24 @@
-queue = []
+from collections import deque
 
-queue.append('i')
-queue.append('j')
-queue.append('k')
 
-print("Initial queue")
-print(queue)
+class Queue(object):
+    """Wrapper around collections.deque to provide the api consistent with
+    a Queue"""
 
-print("\nElements dequeued from queue")
-print(queue.pop(0))
-print(queue.pop(0))
-print(queue.pop(0))
+    def __init__(self):
+        self.items = deque()
 
-print("\nQueue after removing elements")
-print(queue)
+    def __str__(self):
+        return ("Queue of size: %d" % len(self.items))
+
+    def isEmpty(self):
+        return len(self.items) == 0
+
+    def enqueue(self, item):
+        self.items.append(item)
+
+    def dequeue(self):
+        return self.items.popleft()
+
+    def size(self):
+        return len(self.items)
