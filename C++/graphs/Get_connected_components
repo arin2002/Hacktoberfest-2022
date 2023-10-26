@@ -1,0 +1,62 @@
+#include <iostream>
+#include<bits/stdc++.h>
+#include<queue>
+using namespace std;
+
+void print( int **edges , int n , int sv, bool* visited ){
+    queue<int> q;
+    q.push(sv);
+    visited[sv] = true;
+    vector<int> v;
+    //cout<<sv<<" ";
+    v.push_back(sv);
+    while( q.size() != 0 ){
+      //  cout<<q.front()<<" ";
+        for(int i=0 ; i<n;i++){
+            if(i == q.front())
+                continue;
+            if(edges[q.front()][i] == 1  && !visited[i]){
+                q.push(i);
+                visited[i] = true;
+                //cout<<i<<" ";
+                v.push_back(i);
+              }
+            
+            
+        }
+        
+        q.pop();
+    }
+    sort(v.begin(),v.end());
+        for(int i=0;i<v.size();i++)
+                cout<<v[i]<<" ";
+    for(int i=0;i<n;i++)
+    {
+        if(visited[i] == false){
+            cout<<endl;
+            print(edges,n,i,visited);}
+    }
+    return ;
+}
+int main() {
+    int n, e;
+    cin >> n >> e;
+    int **edges = new int*[n];
+    for(int i=0 ; i<n ;i++)
+        edges[i] = new int[n];
+    for(int i=0 ;i<e;i++){
+        int f,s;
+        cin>>f>>s;
+        edges[s][f] = 1;
+        edges[f][s] = 1;
+    }
+    bool *visited = new bool[n];
+    for(int i=0 ; i<n ;i++)
+        visited[i] = false;
+      print(edges,n,0,visited);
+  //  if(x)
+    //    cout<<"true";
+   // else
+     //   cout<<"false";
+  return 0;
+}

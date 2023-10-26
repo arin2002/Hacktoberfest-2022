@@ -1,0 +1,27 @@
+bool isIdentical(TreeNode<int> *root1, TreeNode<int> * root2) {
+    /* Don't write main().
+     * Don't read input, it is passed as function argument.
+     * Return output and don't print it.
+     * Taking input and printing output is handled automatically.
+     */
+     bool ans = true;
+    int i,j;
+    if(root1 == NULL && root2 != NULL)
+        return false ;
+    if(root2 == NULL && root1 != NULL)
+        return false ;
+   if(root1->data!=root2->data) 
+       return false;
+   else
+   {
+for( i=0;i<root1->children.size();i++)
+{
+    ans= isIdentical(root1->children[i],root2->children[i]);
+    if(ans == false)
+        return false ;
+}
+  
+   }
+    if(ans)  
+      return true;
+}

@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+int main ()
+{
+int F1, c1, F2, c2, i, j, k;
+int A[5][5], B[5][5], C[5][5];
+cout << "Enter the number of columns and rows of matrix A : ";
+cin >> F1 >> c1;
+cout << "Enter number of Cloumns and rows of matrix B : ";
+cin >> F2 >> c2;
+if (c1 != F2)
+{
+cout << "Matrices can't be multiplied..";
+exit(0);
+}
+cout << "Input the elements of matrix A : ";
+for (i = 0; i < F1; i++)
+for (j = 0; j < c1; j++)
+cin >> A[i][j];
+cout << "Input the elements of matrix B : ";
+for (i = 0; i < F2; i++)
+for (j = 0; j < c2; j++)
+cin >> B[i][j];
+for (i = 0; i < F1; i++)
+{
+for (j = 0; j < c2; j++)
+{
+C[i][j] = 0;
+for (k = 0; k < F2; k++)
+{
+C[i][j] += A[i][k] * B[k][j];
+}
+}
+}
+cout << "Product of matrices\n";
+for (i = 0; i < F1; i++)
+{
+for (j = 0; j < c2; j++)
+cout << C[i][j] << "  ";
+cout << "\n";
+}
+return 0;
+}

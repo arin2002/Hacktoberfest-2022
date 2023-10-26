@@ -1,0 +1,27 @@
+// Following is the node structure
+/**************
+class node{
+public:
+    int data;
+    node * next;
+    node(int data){
+        this->data=data;
+        this->next=NULL;
+    }
+};
+***************/
+node *reverse_linked_list_rec(node *head)
+{
+    //write your recursive code here
+    if(head == NULL || head->next == NULL)
+        return head ;
+    node* x = reverse_linked_list_rec(head->next) ;
+    node* temp = x ;
+    while(x != NULL && x->next != NULL) {
+        x = x->next ;
+    }
+    x->next = head ;
+    head->next = NULL ;
+    return temp ;
+}
+

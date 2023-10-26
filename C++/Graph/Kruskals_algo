@@ -1,0 +1,87 @@
+#include <iostream>
+#include<algorithm>
+using namespace std;
+class edge
+{
+   public:
+    int v1;
+    int v2;
+    int w;
+};
+bool compare(edge e1,edge e2)
+    {
+        return e1.w < e2.w;
+    }
+int findparent(int v,int* parent)
+{
+    if(parent[v] == v)
+    {
+        return v;
+    }
+    return findparent(parent[v],parent);
+}
+    
+int main()
+{
+  int V, E, tempX, tempY;
+  cin >> V >> E;
+
+    int ei,ej,wi;
+    edge* input = new edge[E];
+    for(int i=0;i<E;i++)
+    {
+        cin>>ei>>ej>>wi;
+        edge o1;
+        o1.v1 = ei;
+            o1.v2 = ej;
+            o1.w = wi;
+        input[i] = o1;
+    }
+    
+    sort(input,input + E,compare);
+    
+    edge*output = new edge[V-1];
+    
+    int* parent = new int[V];
+    for(int i=0;i<V;i++)
+    {
+        parent[i] = i;
+    }
+    int count = 0;
+    int i=0;
+        while(count < V-1){
+            edge current = input[i];
+        int p1,p2;
+    p1 = findparent(current.v1,parent);
+            p2 = findparent(current.v2,parent);
+       /* if(p1 == p2)
+        {
+            continue;
+        }
+        else */
+        if(p1 != p2)
+        {
+         output[count] = current;
+        parent[p1] = p2;
+            count ++;
+        }
+            i++;
+    }
+    
+    /****************************** printing****************************************/
+    for(int i=0;i<V-1;i++)
+    {
+        if(output[i].v1 < output[i].v2)
+        cout<<output[i].v1<<" "<<output[i].v2<<" "<<output[i].w<<endl;
+        else
+           cout<<output[i].v2<<" "<<output[i].v1<<" "<<output[i].w<<endl; 
+    }
+
+    delete [] input;
+    delete [] output;
+    delete [] parent;
+    
+    
+
+  return 0;
+}

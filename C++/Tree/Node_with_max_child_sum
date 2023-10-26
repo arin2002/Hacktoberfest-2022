@@ -1,0 +1,73 @@
+/************************************************************
+
+    Following is the structure for the TreeNode class
+
+    template <typename T>
+    class TreeNode {
+     public:
+        T data;
+        vector<TreeNode<T>*> children;
+
+        TreeNode(T data) {
+            this->data = data;
+        }
+
+        ~TreeNode() {
+            for (int i = 0; i < children.size(); i++) {
+                delete children[i];
+            }
+        }
+    };
+
+************************************************************/
+#include<bits/stdc++.h>
+class p{
+    public:
+    TreeNode<int>* t;
+    int sum;
+};
+
+p* helper(TreeNode<int>* root) {
+    
+    p* ans;
+    if(root == NULL){
+        ans->t = NULL;
+        ans->sum = -1;
+        return ans;
+    }
+    
+    
+    int sum = root->data;
+    int temp = INT_MIN;
+    TreeNode<int>* maxN = NULL;
+    p* p;
+    for(int i=0;i<root->children.size();i++) {
+        sum += root->children[i]->data;
+        p = helper(root->children[i]);
+        if(p->sum > temp){
+            temp = p->sum;
+            maxN = p->t;
+        }
+    }
+    
+    if(p->sum > sum) {
+        sum = p->sum;
+    }
+    else {
+        maxN = root;
+    }
+    
+    ans->t = maxN;
+    ans->sum = sum;
+    
+    return ans;
+}
+
+TreeNode<int>* maxSumNode(TreeNode<int>* root) {
+    // Write your code here
+    if(root == NULL)
+        	return NULL;
+    
+    return helper(root)->t;
+    
+}

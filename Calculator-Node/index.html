@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+    margin:0%;
+    padding:0%;
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+    height:100%;
+    width:100%;
+}
+.head{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+    color:rgb(0, 0, 0);
+    background-color: rgb(209, 209, 209);
+
+}
+.center{
+    margin-left: 30vw;
+   justify-content: center;
+   align-items: center;
+    background-color: rgb(0, 0, 0);
+    width:40vw;
+    height:40vh;
+    border-radius: 10px;
+}
+
+.down{
+    margin-top: 30vh;
+    padding-top: 6vh;
+}
+form{
+    margin-top: 2vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+}
+input{
+    margin-right: 1vw;
+   height: 5vh;
+   background-color: rgb(228, 228, 228);
+   border: 0px;
+   border-radius: 10px;
+}
+.btn {
+ border: #eee;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 10px #834b8c;
+  border-radius: 10px;
+ }
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.button{
+    width:8vw;
+  background-image: linear-gradient(to right, #6582f6 0%, #d385fd 51%, #a465f6 100%);
+}
+
+    </style>
+</head>
+<body>
+    <h1 class="head">Simple Calculator</h1>
+    <div class="center">
+        <div class="top">
+    <form class="down" method="POST" action="/add">
+        <input type="number" name="num1" placeholder="First number">
+        <input type="number" name="num2" placeholder="Second number">
+<input class="button btn" type="submit" value="ADD"> </form>
+
+<form method="POST" action="/sub">
+<input type="number" name="num3" placeholder="First number">
+<input type="number" name="num4" placeholder="Second number">
+<input class="button btn" type="submit" value="SUB">
+</form>
+
+<form method="POST" action="/mul">
+    <input type="number" name="num5" placeholder="First number">
+    <input type="number" name="num6" placeholder="Second number">
+    <input class="button btn" type="submit" value="MUL">
+    </form>
+
+    
+<form method="POST" action="/div">
+    <input type="number" name="num7" placeholder="First number">
+    <input type="number" name="num8" placeholder="Second number">
+    <input class="button btn" type="submit" value="DIV">
+    </form>
+</div>
+</div>
+</body>
+</html>
