@@ -1,0 +1,26 @@
+#include <iostream> // Including input/output stream library
+#include <string> // Including string handling library
+using namespace std; // Using the standard namespace
+
+// Function to count the number of words in a string
+int Word_count(string text) {
+
+	int ctr = 0; // Initializing a counter variable to count words
+
+	// Loop through the string and count spaces to determine words
+	for (int x = 0; x < text.length(); x++) {
+		if (text[x] == ' ') // Checking for spaces to count words
+			ctr++; // Increment the counter for each space found
+	}
+	return ctr + 1; // Return the count of words by adding 1 to the total number of spaces (plus 1 for the last word without a trailing space)
+}
+
+// Main function
+int main() {
+	// Displaying the count of words in different strings
+    cout << "Original string: Python, number of words -> " << Word_count("Python") << endl;
+    cout << "\nOriginal string: CPP Exercises, number of words -> " << Word_count("CPP Exercises") << endl;
+    cout << "\nOriginal string: After eagling the Road Hole on Thursday, he missed an 8-footer for birdie Friday., \nnumber of words -> ";
+	cout << Word_count("After eagling the Road Hole on Thursday, he missed an 8-footer for birdie Friday.") << endl;
+    return 0; // Return 0 to indicate successful completion
+}
