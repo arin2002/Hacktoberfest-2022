@@ -1,0 +1,56 @@
+#include <iostream> // Including input/output stream library
+#include <string> // Including string library for string operations
+
+using namespace std; // Using the standard namespace
+
+// Function to find numbers in a string and calculate their sum
+int find_nums_and_sum(string str) {
+
+    int sum_num = 0; // Initializing the variable to store the sum of numbers found
+    string temp_str; // Creating a temporary string to store consecutive digits
+
+    // Loop through each character in the string
+    for (int x = 0; x < str.length(); x++)
+    {
+        // Check if the character is a digit
+        if (isdigit(str[x]))
+        {
+            temp_str.push_back(str[x]); // Add the digit to the temporary string
+
+            // Loop to find consecutive digits in the string
+            for (int y = x + 1; y < str.length(); y++)
+            {
+                // Check if the index exceeds the string length
+                if (y >= str.length())
+                {
+                    break;
+                }
+                // Check if the next character is a digit
+                else if (isdigit(str[y]))
+                {
+                    temp_str.push_back(str[y]); // Add the digit to the temporary string
+                    x = y; // Update the current index to the next digit
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            sum_num += stoi(temp_str); // Convert the temporary string to an integer and add to the sum
+            temp_str.clear(); // Clear the temporary string for the next sequence of digits
+        }
+    }
+
+    return sum_num; // Return the sum of numbers found in the string
+}
+
+// Main function
+int main() {
+
+    // Output the original strings and their corresponding sum of numbers found
+    cout << "Original string: 91, ABC Street.-> Sum of the numbers: "<< find_nums_and_sum("91, ABC Street.") << endl;
+    cout << "Original string: w3resource from 2008->  Sum of the numbers: "<< find_nums_and_sum("w3resource from 2008") << endl;
+    cout << "Original string: C++ Versiuon 14aa11bb23->  Sum of the numbers: "<< find_nums_and_sum("C++ Versiuon 14aa11bb23") << endl; 
+    return 0; // Return 0 to indicate successful completion
+}
